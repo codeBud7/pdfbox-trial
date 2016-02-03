@@ -1,0 +1,4 @@
+*.class
+*.jar
+/.idea
+/pdfbox-trial.iml

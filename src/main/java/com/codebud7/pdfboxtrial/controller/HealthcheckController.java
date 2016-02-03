@@ -1,5 +1,7 @@
 package com.codebud7.pdfboxtrial.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -8,18 +10,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * Created by s.puskeiler on 29.01.16.
- * Returns "ok" if /healthcheck is called, no authentication needed.
  */
 @RestController
-public class HealthcheckController
+class HealthcheckController
 {
-    final String INFORMATION = "ok";
+    private static final Logger logger = LoggerFactory.getLogger(HealthcheckController.class);
 
 
     @RequestMapping(value = "/healthcheck", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
-    public String getResult()
+    public void healthcheck()
     {
-        return INFORMATION;
+        logger.info("healthcheck called");
     }
 }
